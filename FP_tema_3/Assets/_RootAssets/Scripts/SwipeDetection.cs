@@ -42,7 +42,7 @@ public class SwipeDetection : MonoBehaviour
     private void Start()
     {
         initialPosition = transform.position;
-        print(initialPosition);
+        // print(initialPosition);
         // StartCoroutine(ShowCurrentTouchPositionCoroutine());
     }
 
@@ -57,7 +57,7 @@ public class SwipeDetection : MonoBehaviour
         isTouchOn = true;
         transform.position = initialPosition;
         startTouchPosition = position;
-        print($"Started touch at x:{position.x} | y:{position.y}");
+        // print($"Started touch at x:{position.x} | y:{position.y}");
     }
 
     private void SwipeEnd(Vector2 position, float time)
@@ -65,7 +65,7 @@ public class SwipeDetection : MonoBehaviour
         isTouchOn = false;
         transform.position = initialPosition;
         endTouchPosition = position;
-        print($"Ended touch at x:{position.x} | y:{position.y}");
+        // print($"Ended touch at x:{position.x} | y:{position.y}");
     }
 
 

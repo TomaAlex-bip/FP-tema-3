@@ -1,18 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public ZoneType PositionZone { get; private set; }
+    
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("UpZone"))
+        {
+            PositionZone = ZoneType.UpZone;
+            print("UpZone");
+        }
         
+        if (other.CompareTag("DownZone"))
+        {
+            PositionZone = ZoneType.DownZone;
+            print("DownZone");
+        }
+        
+        if (other.CompareTag("LeftZone"))
+        {
+            PositionZone = ZoneType.LeftZone;
+            print("LeftZone");
+        }
+        
+        if (other.CompareTag("RightZone"))
+        {
+            PositionZone = ZoneType.RightZone;
+            print("RightZone");
+        }
     }
+}
+
+
+public enum ZoneType
+{
+    UpZone,
+    DownZone,
+    LeftZone,
+    RightZone
 }
