@@ -38,6 +38,7 @@ public class InteractionsManager : MonoBehaviour
 }
 
 
+[System.Serializable]
 public enum ZoneType
 {
     UpZone,

@@ -13,7 +13,6 @@ public class SwipeDetection : MonoBehaviour
 
     private InputManager inputManager;
 
-
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
     private Vector2 currentTouchPosition;
@@ -31,12 +30,14 @@ public class SwipeDetection : MonoBehaviour
     {
         inputManager.OnStartTouch += SwipeStart;
         inputManager.OnEndTouch += SwipeEnd;
+        print("SwipeDetection OnEnable();");
     }
 
     private void OnDisable()
     {
         inputManager.OnStartTouch -= SwipeStart;
         inputManager.OnEndTouch -= SwipeEnd;
+        print("SwipeDetection OnDisable();");
     }
 
     private void Start()
@@ -62,8 +63,8 @@ public class SwipeDetection : MonoBehaviour
 
     private void SwipeEnd(Vector2 position, float time)
     {
+        GameManager.Instance.CheckInstructionDone();
         isTouchOn = false;
-        transform.position = initialPosition;
         endTouchPosition = position;
         // print($"Ended touch at x:{position.x} | y:{position.y}");
     }
@@ -83,6 +84,9 @@ public class SwipeDetection : MonoBehaviour
         var movePos = Vector2.ClampMagnitude(diffPosRaw * distanceMultiplyer, maxMoveDistance);
             
         transform.position = initialPosition + movePos;
+        
+        
+        
     }
 
 

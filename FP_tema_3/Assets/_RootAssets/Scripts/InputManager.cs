@@ -35,11 +35,13 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         touchControls.Enable();
+        print("InputManager OnEnable();");
     }
 
     private void OnDisable()
     {
         touchControls.Disable();
+        print("InputManager OnDisable();");
     }
 
     private void Start()
